@@ -21,14 +21,14 @@ class Display(QLineEdit):
 
     def ConfigStyle(self):
         margins = [TEXT_MARGIN for _ in range(4)]
-        #self.setStyleSheet(f'QLineEdit {{ background-color: blue; font-size:{BIG_FONT_SIZE}px; }}')
+        
         self.setMinimumHeight(BIG_FONT_SIZE * 2)
         self.setMinimumWidth(MINIMUM_WIDTH)
         self.setAlignment(Qt.AlignmentFlag.AlignRight)
         self.setTextMargins(*margins)
 
     def keyPressEvent(self, event: QKeyEvent) -> None:
-        text = event.text().strip() #strip remove espacos das pontas
+        text = event.text().strip() #strip removes spaces in the corners
         key = event.key()
         KEYS = Qt.Key
 
@@ -66,7 +66,7 @@ class Display(QLineEdit):
             return event.ignore()
             
         
-        #nap passar daqui se nao tiver texto
+        #dont pass here without text
 
         if isEmpty(text):
             return event.ignore()

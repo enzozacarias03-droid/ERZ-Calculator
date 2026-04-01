@@ -5,22 +5,22 @@ class MainWindow(QMainWindow):
     def __init__(self, parent: QWidget | None = None, *args, **kwargs) -> None:
         super().__init__(parent, *args, **kwargs)
         
-        #Configurando o layout basico
-        #substituimos o window pelo self
+        #Configuring the basic layout
+        #substituing window for self
         self.cw = QWidget()
-        self.v_layout = QVBoxLayout() #tipo de layout
-        self.cw.setLayout(self.v_layout) #tas a escolher o layout
+        self.v_layout = QVBoxLayout() #type of layout
+        self.cw.setLayout(self.v_layout) #choosing the layout
         self.setCentralWidget(self.cw)
 
-        #Titulo da janela
-        self.setWindowTitle('ERZ Calculator')#meter titulo na janela
+        #Window title
+        self.setWindowTitle('ERZ Calculator')#Putting the title on the window
 
       
     def adjustFixedSize(self):
-        #Ultima coisa a ser feita
-        self.adjustSize() #ajustar tamanho da janela
+        #Last thing to be done
+        self.adjustSize() #Adjusting window size
         self.setFixedSize(self.width(), self.height()) 
-        #tamanho fixo, que nao muda
+        #Fixed size that does not change
 
     def addWidgetToVLayout(self, widget: QWidget):
         self.v_layout.addWidget(widget)

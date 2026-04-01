@@ -157,18 +157,17 @@ class ButtonsGrid(QGridLayout):
     
     @Slot()
     def _configLeftOp(self, text):
-        displayText = self.display.text() # numero left
-        self.display.clear() #limpa o display
+        displayText = self.display.text() # left number
+        self.display.clear() #cleans display
         self.display.setFocus()
         
-        #Se a pessoa clicou no operador sem
-        #configurar qualquer numero
+        #If the person clicks on the operator without
+        #selecting a number
         if not isValidNum(displayText) and self._left is None:
             self._showError('You did not type a number')
             return
         
-        #Se houver algo no numero da esquerda
-        #nao se faz nada, so aguardamos numero d direita
+        
         if self._left is None:
             self._left = converToNumber(displayText)
 
@@ -194,7 +193,7 @@ class ButtonsGrid(QGridLayout):
             else:
                 result = eval(self.equation)
                 
-            #eval avalia uma string cmo codigo python
+            #eval evaluates a string like a python code 
         except ZeroDivisionError:
             self._showError('You are dividing by zero')
         except OverflowError:
